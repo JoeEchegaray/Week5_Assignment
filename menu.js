@@ -17,7 +17,7 @@ class Menu {
         let menuSelection = null;
 
         while (menuSelection !== 'Done') { //need to fix menu to represent artists as the root menu then add edit artist menu to add songs!!!!!!
-            menuSelection = prompt('Please Select an Option from the following:\nAdd Song\nSelect Artist\nDelete Song\nDisplay Songs\nDone');
+            menuSelection = prompt('Please Select an Option from the following:\nAdd Song\nDelete Song\nDisplay Songs\nDone');
             if(menuSelection === 'Add Song') {
                 let song = prompt('Enter Song Name');
                 let artist = prompt('Enter Artist Name')
@@ -32,15 +32,19 @@ class Menu {
             else if(menuSelection === 'Display Songs') {
                 let songListString = '';
                 for (let i = 0; i < this.songs.length; i++){
-                    songListString += this.songs[i] + '\n'
+                    songListString += this.songs[i].name + ', By ' + this.songs[i].artist + '\n';
                 }
                 alert(songListString);
             }
+            else if (menuSelection === 'Done') {
+                alert('Thank You! Have a nice day.');
+            } 
             else {
                 alert('Not a Valid Option, Please Try Again.');
+
             }
         }
-        alert('Thank You! Have a nice day.');
+        alert('Thank You! Program is Complete.');
     }
 }
 
