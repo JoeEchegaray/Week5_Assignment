@@ -16,18 +16,17 @@ class Menu {
     start() {
         let menuSelection = null;
 
-        while (menuSelection !== 'Done') { //need to fix menu to represent artists as the root menu then add edit artist menu to add songs!!!!!!
+        while (menuSelection !== 'Done') { 
             menuSelection = prompt('Please Select an Option from the following:\nAdd Song\nDelete Song\nDisplay Songs\nDone');
             if(menuSelection === 'Add Song') {
                 let song = prompt('Enter Song Name');
-                let artist = prompt('Enter Artist Name')
+                let artist = prompt('Enter Artist Name');
                 this.songs.push(new Songs(song, artist));
-                console.log(this.songs);
             }
             else if(menuSelection === 'Delete Song') {
                 let toDelete = prompt('Which song would you like to delete?')
-                const deleteIndex = this.songs.findIndex(songs => songs.song === toDelete);
-                this.songs.splice(deleteIndex, 1);
+                const deleteIndex = this.songs.findIndex(songs => songs.song === toDelete); //finds and sets the variable to the index of the song to be deleted based off of user input
+                this.songs.splice(deleteIndex, 1); //removes the found song from the array
             }
             else if(menuSelection === 'Display Songs') {
                 let songListString = '';
